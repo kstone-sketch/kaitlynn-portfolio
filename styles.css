@@ -1001,3 +1001,4 @@ section{position:relative}
 @media (max-width:600px){.work.four .pcard:not(.kk-card) .float .wordmark b{font-size:27px}.work.four .pcard:not(.kk-card) .float .wordmark small{letter-spacing:.14em;font-size:12px}}
 .work.four .pcard:not(.kk-card) .float{min-height:433px}
 @media (max-width:600px){.work.four .pcard:not(.kk-card) .float{min-height:495px}}
+.work.four .pcard:not(.kk-card) .float .logo-img.wide{max-width:min(240px,100%)}
