@@ -991,3 +991,6 @@ section{position:relative}
 @media (max-width:960px){.work.four .pcard.kk-card{justify-content:center}}
 @media (max-width:600px){.work.four .pcard.kk-card{background:#2a4244}.work.four .pcard.kk-card > img.bg{inset:0 0 auto 0;height:330px;object-position:62% 40%}}
 .work.four .pcard.kk-card{justify-content:center}
+/* play pill floating on a card cover (Ghost: Cinco de Mayo) */
+.pcard2 .cover .cover-play{position:absolute;left:14px;bottom:14px;z-index:3;background:#fff;color:var(--ink);box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.pcard2 .cover .cover-play:hover{background:var(--ink);color:#fff}
