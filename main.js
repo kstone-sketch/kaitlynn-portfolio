@@ -65,9 +65,9 @@
           <p style="font-size:14.5px;border-top:1px solid #e6e4e2;padding-top:14px;margin:0">${esc(d.built || 'Strategy, copy, design and build by me, in-house at The Treetop ABA. Coded with Claude Code.')}</p>
         </div>`;
       lb.classList.add('open'); document.body.style.overflow = 'hidden';
-      lb.querySelector('.lb-close').focus();
+      lb.querySelector('.lb-close').focus({ preventScroll: true });
     };
-    const close = () => { lb.classList.remove('open'); document.body.style.overflow = ''; last && last.focus(); };
+    const close = () => { lb.classList.remove('open'); document.body.style.overflow = ''; last && last.focus({ preventScroll: true }); };
     document.addEventListener('click', e => {
       const t = e.target.closest('.ctile'); if (t && byId[t.dataset.id]) open(byId[t.dataset.id]);
     });
@@ -87,16 +87,16 @@
       img.src = items[idx].src; img.alt = items[idx].cap || ''; cap.textContent = items[idx].cap || '';
       cnt.textContent = (idx + 1) + ' / ' + items.length;
       [...th.children].forEach((b, k) => b.setAttribute('aria-current', k === idx));
-      if (th.children[idx]) th.children[idx].scrollIntoView({ inline: 'center', block: 'nearest' });
+      const c = th.children[idx]; if (c) th.scrollTo({ left: th.scrollLeft + c.getBoundingClientRect().left - th.getBoundingClientRect().left - (th.clientWidth - c.offsetWidth) / 2, behavior: 'smooth' });
     };
     const open = (id, i) => {
       const d = JSON.parse(document.getElementById('gal-' + id).textContent);
       items = d.items; ttl.textContent = d.title;
       th.innerHTML = items.map((it, k) => `<button type="button" aria-label="Image ${k + 1}"><img src="${it.thumb || it.src}" alt="" loading="lazy"></button>`).join('');
       last = document.activeElement; gal.classList.add('open'); document.body.style.overflow = 'hidden';
-      show(i || 0); gal.querySelector('.gal-x').focus();
+      show(i || 0); gal.querySelector('.gal-x').focus({ preventScroll: true });
     };
-    const close = () => { gal.classList.remove('open'); document.body.style.overflow = ''; img.removeAttribute('src'); if (last) last.focus(); };
+    const close = () => { gal.classList.remove('open'); document.body.style.overflow = ''; img.removeAttribute('src'); if (last) last.focus({ preventScroll: true }); };
     document.addEventListener('click', e => { const t = e.target.closest('[data-gal]'); if (t) { e.preventDefault(); open(t.dataset.gal, +(t.dataset.i || 0)); } });
     gal.querySelector('.gal-x').addEventListener('click', close);
     gal.querySelector('.prev').addEventListener('click', () => show(idx - 1));
@@ -118,9 +118,9 @@
       body.querySelectorAll('.tabpane:not([hidden])').forEach(load);
       if (!body.querySelector('.tabpane')) load(body);
       last = document.activeElement; play.classList.add('open'); document.body.style.overflow = 'hidden';
-      play.querySelector('.play-x').focus();
+      play.querySelector('.play-x').focus({ preventScroll: true });
     };
-    const close = () => { play.classList.remove('open'); body.innerHTML = ''; document.body.style.overflow = ''; if (last) last.focus(); };
+    const close = () => { play.classList.remove('open'); body.innerHTML = ''; document.body.style.overflow = ''; if (last) last.focus({ preventScroll: true }); };
     document.addEventListener('click', e => {
       const t = e.target.closest('[data-play]'); if (t) { e.preventDefault(); open(t.dataset.play); return; }
       const tab = e.target.closest('.tabs button');
