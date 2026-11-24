@@ -1,0 +1,12 @@
+/* Wix embed mode: each embed-*.html page is one section inside a fixed-height Wix "Embed HTML" box. */
+html.embed,html.embed body{margin:0;background:#fff;overflow-x:hidden}
+html.embed .jump-nav{display:none}
+/* pop-ups open around the click instead of the (very tall) frame's center */
+html.embed .gal-m,html.embed .play-m,html.embed .lb{position:absolute;left:0;right:0;bottom:auto;top:var(--mtop,0px);height:var(--mh,100vh)}
+html.embed .gal-stage img{max-height:calc(var(--mh,100vh) - 230px)}
+html.embed .play-m{padding:14px}
+html.embed .play-card{max-height:calc(var(--mh,100vh) - 28px);overflow:auto}
+html.embed .lb-card{max-height:calc(var(--mh,100vh) - 48px)}
+html.embed .play-card iframe[style*="aspect-ratio"]{max-height:calc(var(--mh,100vh) - 170px);width:auto;max-width:100%;margin:0 auto}
+/* solid backgrounds so the Wix strip color can match edge to edge */
+html.embed .case-hero.teal,html.embed .kikko-sec{background:#477981}

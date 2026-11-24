@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" class="embed">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<base target="_top">
+<title>The Treetop ABA | Kaitlynn Stone | Portfolio · studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Patrick+Hand+SC&family=Bagel+Fat+One&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="embed.css">
+</head>
+<body>
+<main>
+<section class="pad bg-mist" id="studio" aria-labelledby="studio-h">
+  <div class="wrap">
+    <div class="claude-intro rv">
+      <div>
+        <span class="hand" style="font-size:26px;display:block;margin-bottom:6px">the in-house studio</span>
+        <h2 id="studio-h">Ideas I took from sketch to ship</h2>
+      </div>
+      <p>Alongside the big campaigns, I've researched, written, designed, built and reported on 23 more projects since January 2026, coding the builds myself with Claude Code. Tap any one for the story.</p>
+    </div>
+    <div class="chips rv">
+      <div class="chip"><b>4</b><span>browser games designed and built for one seasonal campaign</span></div>
+      <div class="chip"><b>24</b><span>insurance pages generated from a single template I designed</span></div>
+      <div class="chip"><b>191</b><span>Google Business posts, ready for every center to publish</span></div>
+      <div class="chip"><b>22</b><span>centers tracked on one reviews dashboard</span></div>
+    </div>
+    <div class="filters rv" role="group" aria-label="Filter projects">
+      <button type="button" data-cat="all" aria-pressed="true">All</button>
+      <button type="button" data-cat="campaign" aria-pressed="false">Campaigns &amp; lead magnets</button>
+      <button type="button" data-cat="web" aria-pressed="false">Web &amp; SEO</button>
+      <button type="button" data-cat="tools" aria-pressed="false">Tools &amp; dashboards</button>
+      <button type="button" data-cat="strategy" aria-pressed="false">Strategy &amp; research</button>
+      <button type="button" data-cat="print" aria-pressed="false">Print &amp; recruiting</button>
+    </div>
+    <div class="cgrid" id="studio-grid" data-studio="all" data-exclude="winter"></div>
+    
+  </div>
+</section>
+</main>
+<template id="tpl-winter-games"><h3>Play the Cozy Break Kit games</h3><p class="sub">These are the real games from the landing page. Go ahead, play.</p><div class="tabs" role="tablist"><button type="button" role="tab" aria-selected="true">Sled Dash</button><button type="button" role="tab" aria-selected="false">Catch a snowflake</button><button type="button" role="tab" aria-selected="false">Dress up a snowman</button></div><div class="tabpane"><iframe data-src="https://www-kaitlynnstone-com.filesusr.com/html/69cdae_6dc96762b05683c5a3f0f5b10e5061ee.html" title="Sled Dash game" style="aspect-ratio:980/681;height:auto"></iframe></div><div class="tabpane" hidden><iframe data-src="https://www-kaitlynnstone-com.filesusr.com/html/69cdae_b10810c668e86def3390b490075639c7.html" title="Catch a snowflake game" style="aspect-ratio:980/1153;height:auto"></iframe></div><div class="tabpane" hidden><iframe data-src="https://www-kaitlynnstone-com.filesusr.com/html/69cdae_99f0652050b8169f32ab3c748699e845.html" title="Dress up a snowman game" style="aspect-ratio:980/918;height:auto"></iframe></div></template><template id="tpl-winter-landing"><h3>Cozy Break Kit landing page</h3><p class="sub">Scroll inside the monitor to see the full page.</p><iframe data-src="https://www-kaitlynnstone-com.filesusr.com/html/69cdae_75a503ef6f8f859958a964613367960f.html" title="Cozy Break Kit landing page" style="aspect-ratio:980/681;height:auto"></iframe></template><template id="tpl-winter-video"><h3>Pip's winter break stories</h3><p class="sub">Social video series for Instagram and Facebook Stories.</p><video controls autoplay playsinline poster="assets/treetop/winter-social-still.jpg"><source src="assets/treetop/winter-social-video.mp4" type="video/mp4"></video></template><template id="tpl-tracker-landing"><h3>Parent Progress Tracker landing page</h3><p class="sub">Scroll inside the screen to see the full page.</p><iframe data-src="https://www-kaitlynnstone-com.filesusr.com/html/69cdae_f6344c5dcf54b6a7846c026cd5cea9ce.html" title="Parent Progress Tracker landing page" style="aspect-ratio:980/681;height:auto"></iframe></template>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lb-title"><button class="lb-close" aria-label="Close">×</button><div class="lb-card"></div></div><div class="gal-m" id="gal" role="dialog" aria-modal="true" aria-label="Project gallery"><div class="gal-top"><h3><span></span><em class="count"></em></h3><button class="gal-x" aria-label="Close gallery">×</button></div><div class="gal-stage"><button class="gal-nav prev" aria-label="Previous image">‹</button><figure><img alt=""><figcaption></figcaption></figure><button class="gal-nav next" aria-label="Next image">›</button></div><div class="gal-thumbs"></div></div><div class="play-m" id="play" role="dialog" aria-modal="true" aria-label="Interactive piece"><div class="play-card"><button class="play-x" aria-label="Close">×</button><div class="play-body"></div></div></div>
+<script src="studio-data.js"></script>
+<script src="main.js"></script>
+<script src="embed.js"></script>
+</body>
+</html>
