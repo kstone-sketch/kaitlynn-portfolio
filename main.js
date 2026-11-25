@@ -220,3 +220,51 @@
     els.forEach(el => io.observe(el));
   } else els.forEach(el => el.classList.add('in'));
 })();
+
+/* Treetop short-form videos: the browser's own <video> player keeps sound and picture in sync
+   (TikTok's embedded player sends the sound through Web Audio, which lags behind the picture). */
+(function () {
+  document.querySelectorAll('.tt').forEach(function (g) {
+    var track = g.querySelector('.tt-track');
+    var cards = [].slice.call(g.querySelectorAll('.tt-card'));
+    function pauseOthers(v) {
+      document.querySelectorAll('.tt-card video').forEach(function (o) { if (o !== v && !o.paused) o.pause(); });
+    }
+    cards.forEach(function (card) {
+      var v = card.querySelector('video'), btn = card.querySelector('.tt-play');
+      function start() {
+        pauseOthers(v);
+        card.classList.add('on');
+        v.controls = true;
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      }
+      btn.addEventListener('click', function () { start(); v.focus({ preventScroll: true }); });
+      v.addEventListener('play', function () { pauseOthers(v); card.classList.add('on'); v.controls = true; });
+      v.addEventListener('ended', function () { card.classList.remove('on'); v.controls = false; v.load(); });
+    });
+    // pause a video once it scrolls out of the carousel
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (!e.isIntersecting) { var v = e.target.querySelector('video'); if (!v.paused) v.pause(); } });
+      }, { root: track, threshold: 0.15 });
+      cards.forEach(function (c) { io.observe(c); });
+    }
+    // arrows page through by the number of whole cards on screen
+    var prev = g.querySelector('.tt-prev'), next = g.querySelector('.tt-next');
+    function step() {
+      var c = cards[0]; if (!c) return track.clientWidth;
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 16, w = c.getBoundingClientRect().width + gap;
+      return w * Math.max(1, Math.floor((track.clientWidth + gap) / w));
+    }
+    function ends() {
+      prev.disabled = track.scrollLeft < 4;
+      next.disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 4;
+    }
+    prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+    track.addEventListener('scroll', ends, { passive: true });
+    window.addEventListener('resize', ends);
+    ends();
+  });
+})();
